@@ -1,5 +1,6 @@
 package com.java0tutor.string.pattern.task1;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Task1 {
@@ -31,7 +32,50 @@ public class Task1 {
 		this.str = str;
 	}
 
-	public String sortParagraphs() {
+	public void startOfApp() {
+		System.out.println("\tДан текст:\n" + str);
+		System.out.println("\n\tВы можете:\n1. отсортировать абзацы по количеству предложений");
+		System.out.println("2. в каждом предложении отсортировать слова по длине");
+		System.out.println("3. отсортировать лексемы в предложении по убыванию количества "
+				+ "вхождений заданного символа, а в случае равенства – по алфавиту");
+		inputOfAction();
+	}
+
+	private void inputOfAction() {
+		int num;
+		String s;
+
+		num = 0;
+		s = " ";
+		while (num <= 0 || num > 3) {
+			System.out.print("\nДля того, чтобы выполнить одно из действий введите число, "
+					+ "соответствующее номеру действия (от 1 до 3): ");
+			Scanner scanner = new Scanner(System.in);
+			if (scanner.hasNextInt()) {
+				num = scanner.nextInt();
+				if (num == 3) {
+					while (!(s.charAt(0) > 32)) {
+						Scanner scanner1 = new Scanner(System.in);
+						System.out.print("\nВведите символ для сортировки лексем: ");
+						s = scanner1.nextLine();
+					}
+				}
+				if (num == 1) {
+					System.out.println("\nСортировка абзацев по количеству предложений:\n");
+					System.out.println(sortParagraphs());
+				} else if (num == 2) {
+					System.out.println("\nСортировка слов по длине в каждом предложении:\n");
+					System.out.println(sortWordsInSentences());
+				} else if (num == 3) {
+					System.out.println("\nСортировка лексем в каждом предложении по убыванию "
+							+ "количества вхождений символа \"" + s + "\":\n");
+					System.out.println(sortLexemesInSentences(s.charAt(0)));
+				}
+			}
+		}
+	}
+
+	private String sortParagraphs() {
 		String[] array;
 		String result;
 
@@ -41,7 +85,7 @@ public class Task1 {
 		return result;
 	}
 
-	public String sortWordsInSentences() {
+	private String sortWordsInSentences() {
 		String[] ArrayOfSentences;
 		String[] arrayOfParagraphs;
 		String[] arrayWords;
@@ -63,7 +107,7 @@ public class Task1 {
 		return result;
 	}
 
-	public String sortLexemesInSentences(char c) {
+	private String sortLexemesInSentences(char c) {
 		String[] ArrayOfSentences;
 		String[] arrayOfParagraphs;
 		String[] arrayWords;
@@ -207,7 +251,7 @@ public class Task1 {
 
 	private String[] initArrayOfParagraphs() {
 		String[] array;
-		Pattern pattern = Pattern.compile("\n|\t");
+		Pattern pattern = Pattern.compile("\n");
 		array = pattern.split(str);
 		return array;
 	}
@@ -215,7 +259,7 @@ public class Task1 {
 	private String[] initArrayOfSentences(String s) {
 		String[] array;
 
-		Pattern pattern = Pattern.compile("\\.*\\!*\\?*[.!?;]\\s*");
+		Pattern pattern = Pattern.compile("[.!?;]+\s*");
 		array = pattern.split(s);
 		return array;
 	}
@@ -223,7 +267,7 @@ public class Task1 {
 	private String[] initArrayOfWords(String s) {
 		String[] array;
 
-		Pattern pattern = Pattern.compile("\\.*\\!*\\?*[.!?; ]\\s*");
+		Pattern pattern = Pattern.compile("\s");
 		array = pattern.split(s);
 		return array;
 	}
