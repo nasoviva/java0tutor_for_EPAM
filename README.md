@@ -1,4 +1,4 @@
-INTRODUCTION TO JAVA
+Introduction to Java
 
 - Основы программирования
 - Алгоритмизация
