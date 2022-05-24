@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class Task2 {
 
+//	Работа с регулярными выражениями (Pattern, Matcher). Задание 2:
 //	Дана строка, содержащая следующий текст (xml-документ):
 //		<notes>
 //		<note id = "1">
