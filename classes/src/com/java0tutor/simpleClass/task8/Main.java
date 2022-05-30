@@ -13,6 +13,10 @@ public class Main {
 		System.out.println("Список покупателей в алфавитном порядке:");
 		list.sortBySurname();
 		list.printAllCustomers();
+		System.out.println("Поиск покупателей по id:");
+		list.printCustomersOfId(5);
+		System.out.println("Поиск покупателей по номеру карты:");
+		list.printCustomersOfCardNumber("1111222233334400");
 
 		System.out.println("Список покупателей, у которых номер кредитной карточки находится в заданном интервале:");
 		list.printDiapasonOfCardNumbers("1111222222221111", "5555555555555555");

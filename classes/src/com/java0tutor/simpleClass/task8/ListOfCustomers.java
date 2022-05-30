@@ -32,6 +32,43 @@ public class ListOfCustomers {
 		}
 	}
 
+	public void printCustomersOfId(int id) {
+		for (int i = 0; i < customer.length; i++) {
+			if (id == customer[i].getId()) {
+				System.out.println("ID: " + customer[i].getId());
+				System.out.println("Фамилия: " + customer[i].getSurname());
+				System.out.println("Имя: " + customer[i].getName());
+				System.out.println("Отчество: " + customer[i].getPatronymic());
+				System.out.println("Адрес: " + customer[i].getAddress());
+				System.out.println("Номер карты: " + customer[i].getCardNumber());
+				System.out.println("Номер счета: " + customer[i].getAccount());
+				System.out.println();
+			}
+		}
+	}
+
+	public void printCustomersOfCardNumber(String cardNumber) {
+		int flag;
+
+		flag = 0;
+		for (int i = 0; i < customer.length; i++) {
+			if (compareStrings(cardNumber, customer[i].getCardNumber()) == 0
+					&& customer[i].getCardNumber().length() == cardNumber.length()) {
+				System.out.println("ID: " + customer[i].getId());
+				System.out.println("Фамилия: " + customer[i].getSurname());
+				System.out.println("Имя: " + customer[i].getName());
+				System.out.println("Отчество: " + customer[i].getPatronymic());
+				System.out.println("Адрес: " + customer[i].getAddress());
+				System.out.println("Номер карты: " + customer[i].getCardNumber());
+				System.out.println("Номер счета: " + customer[i].getAccount());
+				flag = 1;
+			}
+		}
+		if (flag == 0)
+			System.out.println("Клиент с номером карты " + cardNumber + " не найден");
+		System.out.println();
+	}
+
 	public void printDiapasonOfCardNumbers(String from, String to) {
 		for (int i = 0; i < customer.length; i++) {
 			if (compareStrings(customer[i].getCardNumber(), from) >= 0

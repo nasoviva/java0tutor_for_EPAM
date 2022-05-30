@@ -18,12 +18,10 @@ public class Customer {
 	private String address;
 	private String cardNumber;
 	private String account;
-	private int lengthCardNumber;
-	private int lengthAccount;
+	private int lengthCardNumber = 16;
+	private int lengthAccount = 20;
 
 	public Customer() {
-		lengthCardNumber = 16;
-		lengthAccount = 20;
 	}
 
 	public Customer(int id, String surname, String name, String patronymic, String address, String cardNumber,
@@ -133,7 +131,8 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "[id=" + id + ", surname=" + surname + ", name=" + name + ", patronymic=" + patronymic + ", address="
-				+ address + ", cardNumber=" + cardNumber + ", account=" + account + "]";
+				+ address + ", cardNumber=" + cardNumber + ", account=" + account + ", lengthCardNumber="
+				+ lengthCardNumber + ", lengthAccount=" + lengthAccount + "]";
 	}
 
 }
