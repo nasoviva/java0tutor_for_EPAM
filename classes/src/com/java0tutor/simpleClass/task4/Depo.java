@@ -14,8 +14,10 @@ public class Depo {
 	}
 
 	public Train[] add(Train train_new) {
-		train[count] = train_new;
-		count++;
+		if (count < length) {
+			train[count] = train_new;
+			count++;
+		}
 		return train;
 	}
 
