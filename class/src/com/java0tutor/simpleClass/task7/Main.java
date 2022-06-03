@@ -1,11 +1,10 @@
 package com.java0tutor.simpleClass.task7;
 
-import com.java0tutor.simpleClass.task7.entity.Coordinate;
-
 //Programming with classes. Простейшие классы и объекты. Задание 7:
 //Описать класс, представляющий треугольник. Предусмотреть методы для создания объектов, вычисления
 //площади, периметра и точки пересечения медиан.
 
+import com.java0tutor.simpleClass.task7.entity.Coordinate;
 import com.java0tutor.simpleClass.task7.entity.Triangle;
 import com.java0tutor.simpleClass.task7.logic.TriangleLogic;
 
