@@ -1,14 +1,4 @@
-package com.java0tutor.simpleClass.task8;
-
-//Programming with classes. Простейшие классы и объекты. Задание 8:
-//Создать класс Customer, спецификация которого приведена ниже. 
-//Определить конструкторы, set- и get- методы и метод toString(). 
-//Создать второй класс, агрегирующий массив типа Customer, с подходящими конструкторами
-//и методами. Задать критерии выбора данных и вывести эти данные на консоль.
-//Класс Customer: id, фамилия, имя, отчество, адрес, номер кредитной карточки, номер банковского счета.
-//Найти и вывести:
-//a) список покупателей в алфавитном порядке;
-//b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
+package com.java0tutor.simpleClass.task8.entity;
 
 public class Customer {
 	private int id;
@@ -129,9 +119,73 @@ public class Customer {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((account == null) ? 0 : account.hashCode());
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((cardNumber == null) ? 0 : cardNumber.hashCode());
+		result = prime * result + id;
+		result = prime * result + lengthAccount;
+		result = prime * result + lengthCardNumber;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((patronymic == null) ? 0 : patronymic.hashCode());
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (account == null) {
+			if (other.account != null)
+				return false;
+		} else if (!account.equals(other.account))
+			return false;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (cardNumber == null) {
+			if (other.cardNumber != null)
+				return false;
+		} else if (!cardNumber.equals(other.cardNumber))
+			return false;
+		if (id != other.id)
+			return false;
+		if (lengthAccount != other.lengthAccount)
+			return false;
+		if (lengthCardNumber != other.lengthCardNumber)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (patronymic == null) {
+			if (other.patronymic != null)
+				return false;
+		} else if (!patronymic.equals(other.patronymic))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
-		return "[id=" + id + ", surname=" + surname + ", name=" + name + ", patronymic=" + patronymic + ", address="
-				+ address + ", cardNumber=" + cardNumber + ", account=" + account + ", lengthCardNumber="
+		return "Customer [id=" + id + ", surname=" + surname + ", name=" + name + ", patronymic=" + patronymic
+				+ ", address=" + address + ", cardNumber=" + cardNumber + ", account=" + account + ", lengthCardNumber="
 				+ lengthCardNumber + ", lengthAccount=" + lengthAccount + "]";
 	}
 
