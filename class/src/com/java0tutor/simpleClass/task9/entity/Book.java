@@ -4,10 +4,6 @@ import java.util.Calendar;
 
 public class Book {
 
-	public enum TypeOfCover {
-		Твердый, Мягкий
-	}
-
 	private int id;
 	private String title;
 	private String author;

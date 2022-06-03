@@ -11,8 +11,8 @@ package com.java0tutor.simpleClass.task9;
 //c) список книг, выпущенных после заданного года.
 
 import com.java0tutor.simpleClass.task9.entity.Book;
-import com.java0tutor.simpleClass.task9.entity.Book.TypeOfCover;
 import com.java0tutor.simpleClass.task9.entity.Library;
+import com.java0tutor.simpleClass.task9.entity.TypeOfCover;
 import com.java0tutor.simpleClass.task9.logic.LibraryLogic;
 import com.java0tutor.simpleClass.task9.view.View;
 
