@@ -8,5 +8,4 @@ public class Main {
 		test.setB(3);
 		System.out.println(test.getA() + ", " + test.getB());
 	}
-
 }

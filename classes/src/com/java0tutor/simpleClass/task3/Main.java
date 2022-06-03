@@ -1,39 +1,33 @@
 package com.java0tutor.simpleClass.task3;
 
+//Programming with classes. Простейшие классы и объекты. Задание 3:
+//Создайте класс с именем Student, содержащий поля: 
+//фамилия и инициалы, номер группы, успеваемость (массив из пяти элементов). 
+//Создайте массив из десяти элементов такого типа. Добавьте возможность вывода фамилий и
+//номеров групп студентов, имеющих оценки, равные только 9 или 10.
+
+import com.java0tutor.simpleClass.task3.entity.GroupOfStudents;
+import com.java0tutor.simpleClass.task3.entity.Student;
+import com.java0tutor.simpleClass.task3.view.View;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Student s = new Student();
-		Student[] student = new Student[10];
-		int[] rating;
-		int group;
+		GroupOfStudents student = new GroupOfStudents(10);
+		View view = new View();
 
-		// заполняем массив студентов
-		for (int i = 0; i < student.length; i++) {
-			rating = new int[s.getGradeSystem()];
-			group = (int) (Math.random() * (3) + 1);
-			for (int j = 0; j < rating.length; j++) {
-				rating[j] = (int) (Math.random() * (3) + 8);
-			}
-			student[i] = new Student("Иванов И.И.", group, rating);
-		}
+		student.addStudent(new Student("Иванов", 2, new int[] { 10, 10, 8, 10, 8 }));
+		student.addStudent(new Student("Петров", 3, new int[] { 9, 10, 8, 10, 8 }));
+		student.addStudent(new Student("Александров", 4, new int[] { 8, 9, 8, 8, 9 }));
+		student.addStudent(new Student("Бабанов", 1, new int[] { 10, 10, 8, 10, 8 }));
+		student.addStudent(new Student("Каков", 1, new int[] { 9, 9, 9, 10, 10 }));
+		student.addStudent(new Student("Приветов", 2, new int[] { 9, 8, 9, 8, 9 }));
+		student.addStudent(new Student("Ивкин", 5, new int[] { 9, 10, 8, 10 }));
+		student.addStudent(new Student("Федоров", 2, new int[] { 9, 10, 9, 10, 9 }));
+		student.addStudent(new Student("Калин", 3, new int[] { 10, 10, 9, 10, 7 }));
+		student.addStudent(new Student("Бойцов", 4, new int[] { 10, 10, 8, 10, 10 }));
 
-		// выводим содержимое на печать
-		System.out.println("Список студентов:");
-		for (int i = 0; i < student.length; i++) {
-			System.out.print("студент[" + i + "] = " + student[i].getSurnameAndInitials() + ", группа: "
-					+ student[i].getGroupNumber() + ", оценки: ");
-			for (int j = 0; j < student[i].getRating().length; j++) {
-				System.out.print(student[i].getRating()[j] + " ");
-			}
-			System.out.println();
-		}
-
-		// выводим студентов с оценками 9 и 10
-		System.out.println("\nСписок лучших студентов:");
-		for (int i = 0; i < student.length; i++) {
-			student[i].listOfBestStudents();
-		}
+		view.printAllStudents(student);
+		view.printBestStudents(student);
 	}
-
 }

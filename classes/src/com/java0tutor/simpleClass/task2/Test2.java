@@ -1,7 +1,7 @@
 package com.java0tutor.simpleClass.task2;
 
 // Programming with classes. Простейшие классы и объекты. Задание 2:
-// Создйте класс Test2 двумя переменными. Добавьте конструктор с входными
+// Создайте класс Test2 двумя переменными. Добавьте конструктор с входными
 // параметрами. Добавьте конструктор, инициализирующий члены класса по умолчанию. 
 // Добавьте set- и get-методы для полей экземпляра класса.
 
@@ -34,4 +34,35 @@ public class Test2 {
 	public int getB() {
 		return b;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + a;
+		result = prime * result + b;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Test2 other = (Test2) obj;
+		if (a != other.a)
+			return false;
+		if (b != other.b)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Test2 [a=" + a + ", b=" + b + "]";
+	}
+
 }
