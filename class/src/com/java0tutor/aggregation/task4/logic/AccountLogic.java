@@ -71,7 +71,7 @@ public class AccountLogic {
 		boolean tmp_status;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
 			for (int j = 0; j < client.getAccounts().size() - 1; j++) {
-				if (conversionCurrency(client.getAccounts().get(j)) > conversionCurrency(
+				if (conversionCurrencyInRub(client.getAccounts().get(j)) > conversionCurrencyInRub(
 						client.getAccounts().get(j + 1))) {
 					tmp_account = client.getAccounts().get(j).getAccount();
 					tmp_openDate = client.getAccounts().get(j).getOpenDate();
@@ -96,7 +96,7 @@ public class AccountLogic {
 	public double sumOfAllAccountsInRub(Client client) {
 		double sum = 0;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
-			sum = sum + conversionCurrency(client.getAccounts().get(i));
+			sum = sum + conversionCurrencyInRub(client.getAccounts().get(i));
 		}
 		return sum;
 	}
@@ -105,7 +105,7 @@ public class AccountLogic {
 		double sum = 0;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
 			if (client.getAccounts().get(i).getBalance() > 0) {
-				sum = sum + conversionCurrency(client.getAccounts().get(i));
+				sum = sum + conversionCurrencyInRub(client.getAccounts().get(i));
 			}
 		}
 		return sum;
@@ -115,7 +115,7 @@ public class AccountLogic {
 		double sum = 0;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
 			if (client.getAccounts().get(i).getBalance() < 0) {
-				sum = sum + conversionCurrency(client.getAccounts().get(i));
+				sum = sum + conversionCurrencyInRub(client.getAccounts().get(i));
 			}
 		}
 		return sum;
@@ -125,7 +125,7 @@ public class AccountLogic {
 		double sum = 0;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
 			if (client.getAccounts().get(i).isStatus() == true) {
-				sum = sum + conversionCurrency(client.getAccounts().get(i));
+				sum = sum + conversionCurrencyInRub(client.getAccounts().get(i));
 			}
 		}
 		return sum;
@@ -135,18 +135,136 @@ public class AccountLogic {
 		double sum = 0;
 		for (int i = 0; i < client.getAccounts().size(); i++) {
 			if (client.getAccounts().get(i).isStatus() == false) {
-				sum = sum + conversionCurrency(client.getAccounts().get(i));
+				sum = sum + conversionCurrencyInRub(client.getAccounts().get(i));
 			}
 		}
 		return sum;
 	}
 
-	private double conversionCurrency(Account account) {
+	public double sumOfAllAccountsInUsd(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			sum = sum + conversionCurrencyInUsd(client.getAccounts().get(i));
+		}
+		return sum;
+	}
+
+	public double sumOfPositiveAccountsInUsd(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).getBalance() > 0) {
+				sum = sum + conversionCurrencyInUsd(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfNegativeAccountsInUsd(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).getBalance() < 0) {
+				sum = sum + conversionCurrencyInUsd(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfActiveAccountsInUsd(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).isStatus() == true) {
+				sum = sum + conversionCurrencyInUsd(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfBlockAccountsInUsd(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).isStatus() == false) {
+				sum = sum + conversionCurrencyInUsd(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfAllAccountsInEuro(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			sum = sum + conversionCurrencyInEuro(client.getAccounts().get(i));
+		}
+		return sum;
+	}
+
+	public double sumOfPositiveAccountsInEuro(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).getBalance() > 0) {
+				sum = sum + conversionCurrencyInEuro(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfNegativeAccountsInEuro(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).getBalance() < 0) {
+				sum = sum + conversionCurrencyInEuro(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfActiveAccountsInEuro(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).isStatus() == true) {
+				sum = sum + conversionCurrencyInEuro(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	public double sumOfBlockAccountsInEuro(Client client) {
+		double sum = 0;
+		for (int i = 0; i < client.getAccounts().size(); i++) {
+			if (client.getAccounts().get(i).isStatus() == false) {
+				sum = sum + conversionCurrencyInEuro(client.getAccounts().get(i));
+			}
+		}
+		return sum;
+	}
+
+	private double conversionCurrencyInRub(Account account) {
 		double result;
 		if (account.getCurrency() == Currency.EURO)
 			result = account.getBalance() * 75;
 		else if (account.getCurrency() == Currency.USD)
 			result = account.getBalance() * 60;
+		else
+			result = account.getBalance();
+		return result;
+	}
+
+	private double conversionCurrencyInUsd(Account account) {
+		double result;
+		if (account.getCurrency() == Currency.RUB)
+			result = account.getBalance() * 0.017;
+		else if (account.getCurrency() == Currency.EURO)
+			result = account.getBalance() * 1.06;
+		else
+			result = account.getBalance();
+		return result;
+	}
+
+	private double conversionCurrencyInEuro(Account account) {
+		double result;
+		if (account.getCurrency() == Currency.RUB)
+			result = account.getBalance() * 0.016;
+		else if (account.getCurrency() == Currency.USD)
+			result = account.getBalance() * 0.94;
 		else
 			result = account.getBalance();
 		return result;
