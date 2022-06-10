@@ -8,7 +8,7 @@ import com.java0tutor.aggregation.task4.entity.Client;
 import com.java0tutor.aggregation.task4.entity.Currency;
 import com.java0tutor.aggregation.task4.entity.Date;
 import com.java0tutor.aggregation.task4.entity.Passport;
-import com.java0tutor.aggregation.task4.logic.AccountLogic;
+import com.java0tutor.aggregation.task4.logic.AccountsLogic;
 import com.java0tutor.aggregation.task4.view.View;
 
 //Programming with classes. Агрегация и композиция. Задание 4:
@@ -21,7 +21,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		View view = new View();
-		AccountLogic logic = new AccountLogic();
+		AccountsLogic logic = new AccountsLogic();
 		List<Account> accounts = new ArrayList<Account>();
 
 		Account account1 = new Account("40840410000000000001", new Date(1, 1, 2021), Currency.RUB, 30000, true);

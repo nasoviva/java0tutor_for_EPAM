@@ -5,7 +5,7 @@ import com.java0tutor.aggregation.task4.entity.Client;
 import com.java0tutor.aggregation.task4.entity.Currency;
 import com.java0tutor.aggregation.task4.entity.Date;
 
-public class AccountLogic {
+public class AccountsLogic {
 
 	public void isActiveStatusOfAccount(Client client, Account account) {
 		for (int i = 0; i < client.getAccounts().size(); i++) {
