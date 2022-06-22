@@ -1,5 +1,6 @@
 package com.java0tutor.oop.task1.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Directory {
@@ -9,6 +10,7 @@ public class Directory {
 
 	public Directory() {
 		name = "new directory";
+		files = new ArrayList<>();
 	}
 
 	public Directory(String name, List<File> files) {
