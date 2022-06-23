@@ -1,9 +1,10 @@
 package com.java0tutor.class_simpleClass.task10.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Airport {
-	private ArrayList<Airline> airline;
+	private List<Airline> airline;
 
 	public Airport() {
 		airline = new ArrayList<>();
@@ -19,7 +20,7 @@ public class Airport {
 		airline.add(newAirline);
 	}
 
-	public ArrayList<Airline> getAirline() {
+	public List<Airline> getAirline() {
 		return airline;
 	}
 
