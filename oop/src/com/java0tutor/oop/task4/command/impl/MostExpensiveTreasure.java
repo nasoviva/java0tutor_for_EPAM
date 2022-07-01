@@ -1,6 +1,5 @@
 package com.java0tutor.oop.task4.command.impl;
 
-import com.java0tutor.oop.task4.bean.Treasure;
 import com.java0tutor.oop.task4.command.Command;
 import com.java0tutor.oop.task4.presentation.PresentationProvider;
 import com.java0tutor.oop.task4.presentation.TreasurePresentation;
@@ -13,19 +12,19 @@ public class MostExpensiveTreasure implements Command {
 	@Override
 	public void execute(String request) throws ServiceException {
 
-		ServiceProvider provider;
+		ServiceProvider serviceProvider;
 		TreasureService treasureService;
 		PresentationProvider presentationProvider;
 		TreasurePresentation treasurePresentation;
 
-		provider = ServiceProvider.getInstance();
-		treasureService = provider.getTreasureService();
+		serviceProvider = ServiceProvider.getInstance();
+		treasureService = serviceProvider.getTreasureService();
 		presentationProvider = PresentationProvider.getInstance();
 		treasurePresentation = presentationProvider.getTreasurePresentation();
 
 		try {
-			Treasure treasure = treasureService.findMostExpensiveTreasure(treasureService.getTreasuresOfDragon());
-			treasurePresentation.printTreasure(treasure);
+			treasurePresentation
+					.printTreasure(treasureService.findMostExpensiveTreasure(treasureService.getTreasuresOfDragon()));
 		} catch (ServiceException e) {
 			throw new ServiceException(e);
 		}

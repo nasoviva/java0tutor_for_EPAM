@@ -13,13 +13,13 @@ public class FindTreasuresForPrice implements Command {
 	@Override
 	public void execute(String request) throws ServiceException {
 
-		ServiceProvider provider;
+		ServiceProvider serviceProvider;
 		TreasureService treasureService;
 		PresentationProvider presentationProvider;
 		TreasurePresentation treasurePresentation;
 
-		provider = ServiceProvider.getInstance();
-		treasureService = provider.getTreasureService();
+		serviceProvider = ServiceProvider.getInstance();
+		treasureService = serviceProvider.getTreasureService();
 		presentationProvider = PresentationProvider.getInstance();
 		treasurePresentation = presentationProvider.getTreasurePresentation();
 
