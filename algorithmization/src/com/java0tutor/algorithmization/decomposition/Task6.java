@@ -37,7 +37,7 @@ public class Task6 {
 		return b;
 	}
 
-	public void setB(int ab) {
+	public void setB(int b) {
 		this.b = b;
 	}
 
