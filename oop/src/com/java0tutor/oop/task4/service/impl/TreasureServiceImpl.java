@@ -14,14 +14,14 @@ import com.java0tutor.oop.task4.service.TreasureService;
 
 public class TreasureServiceImpl implements TreasureService {
 
+	private static final DaoProvider provider = DaoProvider.getInstance();
+
 	@Override
 	public CaveOfDragon getTreasuresOfDragon() throws ServiceException {
 
 		CaveOfDragon cave;
-		DaoProvider provider;
 		TreasureDao treasureDao;
 
-		provider = DaoProvider.getInstance();
 		treasureDao = provider.getTreasureDao();
 		try {
 			cave = treasureDao.getTreasuresOfDragon();

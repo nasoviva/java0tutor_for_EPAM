@@ -1,6 +1,6 @@
 package com.java0tutor.oop.task4.main;
 
-import com.java0tutor.oop.task4.controller.Controller;
+import com.java0tutor.oop.task4.view.ConsolMenu;
 
 //Basics of OOP. Задание 4:
 //Создать консольное приложение, удовлетворяющее следующим требованиям:
@@ -19,16 +19,15 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Controller c = new Controller();
+		ConsolMenu menu = new ConsolMenu();
 
-		System.out.println("Список сокровищ:");
-		c.doAction("view all treasures");
+		menu.add("Список сокровищ:", "view all treasures");
+		menu.add("\nСамое дорогое сокровище:", "find the most expensive treasure");
+		menu.add("\nСписок сокровищ на сумму", "find treasures for price");
 
-		System.out.println("\nСамое дорогое сокровище из списка:");
-		c.doAction("find the most expensive treasure");
-
-		System.out.println("\nСписок сокровищ на сумму 5000:");
-		c.doAction("find treasures for price,5000");
+		menu.viewMenu(1);
+		menu.viewMenu(2);
+		menu.viewMenu(3);
 
 	}
 

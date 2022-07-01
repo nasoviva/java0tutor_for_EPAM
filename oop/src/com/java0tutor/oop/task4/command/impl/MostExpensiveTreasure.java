@@ -1,26 +1,12 @@
 package com.java0tutor.oop.task4.command.impl;
 
 import com.java0tutor.oop.task4.command.Command;
-import com.java0tutor.oop.task4.presentation.PresentationProvider;
-import com.java0tutor.oop.task4.presentation.TreasurePresentation;
 import com.java0tutor.oop.task4.service.ServiceException;
-import com.java0tutor.oop.task4.service.ServiceProvider;
-import com.java0tutor.oop.task4.service.TreasureService;
 
 public class MostExpensiveTreasure implements Command {
 
 	@Override
 	public void execute(String request) throws ServiceException {
-
-		ServiceProvider serviceProvider;
-		TreasureService treasureService;
-		PresentationProvider presentationProvider;
-		TreasurePresentation treasurePresentation;
-
-		serviceProvider = ServiceProvider.getInstance();
-		treasureService = serviceProvider.getTreasureService();
-		presentationProvider = PresentationProvider.getInstance();
-		treasurePresentation = presentationProvider.getTreasurePresentation();
 
 		try {
 			treasurePresentation
