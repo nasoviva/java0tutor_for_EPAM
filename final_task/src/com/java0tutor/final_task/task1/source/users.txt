@@ -1,0 +1,3 @@
+false; user; ÉÉÉÉ; user; user; user@test.ru; false; false; 
+true; admin; ÉÉÉÉ; admin; admin; admin@test.ru; false; false; 
+false; bob; ÉÉÉÉ; bob; dilan; bob@test.ru; false; false; 
